@@ -7,7 +7,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Campaign Analytics Hub",
+  title: "Excelerate",
   description: "Process and analyze campaign reports from multiple e-commerce platforms",
     generator: 'v0.dev'
 }

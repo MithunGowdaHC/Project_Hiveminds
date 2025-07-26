@@ -643,32 +643,32 @@ export default function MultiPlatformCampaignProcessor(): ReactElement {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-950 transition-colors duration-300">
-      <div className="container mx-auto px-4 py-8 max-w-7xl">
+      <div className="container mx-auto px-6 py-12 max-w-6xl">
         {/* Header */}
-        <div className="text-center mb-10">
-          <div className="flex items-center justify-center gap-4 mb-4">
-            <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100">Campaign Analytics Hub</h1>
+        <div className="text-center mb-16">
+          <div className="flex items-center justify-center gap-6 mb-8">
+            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-gray-100">Campaign Analytics Hub</h1>
             <Button
               variant="outline"
-              size="icon"
+              size="lg"
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="rounded-full border-2 hover:scale-105 transition-all duration-200"
+              className="rounded-full border-2 hover:scale-105 transition-all duration-200 w-12 h-12"
             >
               {theme === "dark" ? (
-                <Sun className="h-4 w-4 text-yellow-500" />
+                <Sun className="h-6 w-6 text-yellow-500" />
               ) : (
-                <Moon className="h-4 w-4 text-blue-600" />
+                <Moon className="h-6 w-6 text-blue-600" />
               )}
             </Button>
           </div>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed">
             Process and analyze campaign reports from multiple e-commerce platforms. Upload your data, get insights, and
             export consolidated reports.
           </p>
         </div>
 
         {/* Platform Sections */}
-        <Accordion type="single" collapsible defaultValue="amazon" className="space-y-4">
+        <Accordion type="single" collapsible defaultValue="amazon" className="space-y-6">
           {/* Amazon Section */}
           <AccordionItem value="amazon" className="border border-gray-200 dark:border-gray-800 rounded-lg">
             <AccordionTrigger className="hover:no-underline px-6 py-4">
@@ -689,7 +689,7 @@ export default function MultiPlatformCampaignProcessor(): ReactElement {
             </AccordionTrigger>
             <AccordionContent className="px-6 pb-6">
               {/* Amazon File Upload Section */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
                 <FileUploadCard
                   type="sp"
                   title="Sponsored Products (SP)"
