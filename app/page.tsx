@@ -647,7 +647,7 @@ export default function MultiPlatformCampaignProcessor(): ReactElement {
         {/* Header */}
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-6 mb-8">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-gray-100">Campaign Analytics Hub</h1>
+            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-gray-100">Excelerate</h1>
             <Button
               variant="outline"
               size="lg"
@@ -662,8 +662,7 @@ export default function MultiPlatformCampaignProcessor(): ReactElement {
             </Button>
           </div>
           <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed">
-            Process and analyze campaign reports from multiple e-commerce platforms. Upload your data, get insights, and
-            export consolidated reports.
+            Manual to magical — in one click.
           </p>
         </div>
 
