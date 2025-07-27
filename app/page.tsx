@@ -19,6 +19,7 @@ import {
   ShoppingBag,
   Package,
   Truck,
+  Merge,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -28,6 +29,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { useTheme } from "next-themes"
 import * as XLSX from "xlsx"
 import Papa from "papaparse"
+import { ExcelCollationTool } from "@/components/excel-collation-tool"
 
 interface FileUpload {
   file: File | null
@@ -488,47 +490,47 @@ export default function MultiPlatformCampaignProcessor(): ReactElement {
   const showDataInModal = (content: string, type: string) => {
     const modal = document.createElement("div")
     modal.style.cssText = `
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10000;
-  `
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+`
 
     const modalContent = document.createElement("div")
     modalContent.style.cssText = `
-    background: white;
-    padding: 24px;
-    border-radius: 16px;
-    max-width: 90%;
-    max-height: 90%;
-    overflow: auto;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.25);
-  `
+  background: white;
+  padding: 24px;
+  border-radius: 16px;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+`
 
     modalContent.innerHTML = `
-    <div style="margin-bottom: 20px;">
-      <h3 style="margin: 0 0 12px 0; color: #1f2937; font-size: 20px; font-weight: 600;">Copy ${type} Data</h3>
-      <p style="margin: 0; color: #6b7280; font-size: 14px;">Select all text below and copy (Ctrl+C):</p>
-    </div>
-    <textarea 
-      style="width: 100%; height: 400px; font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace; font-size: 12px; border: 2px solid #e5e7eb; border-radius: 8px; padding: 12px; resize: none;"
-      readonly
-    >${content}</textarea>
-    <div style="margin-top: 20px; text-align: right;">
-      <button 
-        onclick="this.parentElement.parentElement.parentElement.remove()" 
-        style="padding: 12px 24px; background: #3b82f6; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 500; font-size: 14px;"
-      >
-        Close
-      </button>
-    </div>
-  `
+  <div style="margin-bottom: 20px;">
+    <h3 style="margin: 0 0 12px 0; color: #1f2937; font-size: 20px; font-weight: 600;">Copy ${type} Data</h3>
+    <p style="margin: 0; color: #6b7280; font-size: 14px;">Select all text below and copy (Ctrl+C):</p>
+  </div>
+  <textarea 
+    style="width: 100%; height: 400px; font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace; font-size: 12px; border: 2px solid #e5e7eb; border-radius: 8px; padding: 12px; resize: none;"
+    readonly
+  >${content}</textarea>
+  <div style="margin-top: 20px; text-align: right;">
+    <button 
+      onclick="this.parentElement.parentElement.parentElement.remove()" 
+      style="padding: 12px 24px; background: #3b82f6; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 500; font-size: 14px;"
+    >
+      Close
+    </button>
+  </div>
+`
 
     modal.appendChild(modalContent)
     document.body.appendChild(modal)
@@ -921,6 +923,29 @@ export default function MultiPlatformCampaignProcessor(): ReactElement {
                   </CardContent>
                 </Card>
               )}
+            </AccordionContent>
+          </AccordionItem>
+
+          {/* Excel Collation Section */}
+          <AccordionItem value="excel-collation" className="border border-gray-200 dark:border-gray-800 rounded-lg">
+            <AccordionTrigger className="hover:no-underline px-6 py-4">
+              <div className="flex items-center gap-4">
+                <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-purple-100 dark:bg-purple-900/30">
+                  <Merge className="h-5 w-5 text-purple-600 dark:text-purple-400" />
+                </div>
+                <div className="text-left">
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">Multiple Files Collation</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    Merge multiple Excel files by specifying common columns
+                  </p>
+                </div>
+                <span className="ml-auto bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 px-2 py-1 rounded-full text-xs font-medium">
+                  Active
+                </span>
+              </div>
+            </AccordionTrigger>
+            <AccordionContent className="px-6 pb-6">
+              <ExcelCollationTool />
             </AccordionContent>
           </AccordionItem>
 
